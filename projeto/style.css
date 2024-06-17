@@ -1,0 +1,538 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a::after {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+a:active {
+    text-decoration: none;
+    color: black;
+}
+
+
+header {
+    height: 95px;
+    border-bottom: 1px solid black;
+}
+
+.rectangule {
+    width: auto;
+    height: 30px;
+    background: black;
+}
+
+.navbars {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 43px;
+    font-size: 20px;
+    padding-top: 15px;
+
+}
+
+.nav-lists {
+    display: flex;
+}
+
+li {
+    list-style: none;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 0 solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    background-color: #f0f0f0;
+    /* Fundo cinza */
+}
+
+.search-button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #f0f0f0;
+    /* Fundo cinza */
+    color: #333;
+    /* Cor do texto do botão */
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin: 0;
+    appearance: none;
+}
+
+.search-button:hover {
+    background-color: #e0e0e0;
+    /* Muda o fundo do botão ao passar o mouse */
+}
+
+
+main {
+    min-height: 100vh;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container-template {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 40px 0;
+}
+
+.category {
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 77px;
+
+}
+
+.category a {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.img-principal {
+    max-height: 33rem;
+    width: 63%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    object-fit: fill;
+    object-position: bottom;
+}
+
+/* inicio carrinho*/
+
+.table-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-cart-resume {
+    width: 100%;
+    border-collapse: collapse; /* Usamos 'separate' para permitir espaçamento entre bordas */
+    
+}
+
+.links {
+    margin-top: 10px;
+    margin-left: -10px;
+    margin-bottom: 30px;
+}
+
+
+.table-cart-resume tbody:before {
+    content:"@";
+    display:block;
+    line-height:20px;
+    text-indent:-99999px;
+}
+
+.table-cart-resume thead tr   { 
+    box-shadow: 1px 1px 3px #D9D9D9; 
+}
+
+.table-cart-resume tbody tr {
+    box-shadow: 1px 1px 3px #D9D9D9;
+}
+
+.table-cart-resume tbody tr td {
+    padding: 20px;
+}
+
+
+.btn-cart {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.cart-price {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 420px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.cart-price h2 {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.cart-total {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-total tr {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 10px;
+    margin: 0 10px;
+}
+
+.cart-total tr:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.btn-processar {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.btn-bg-purple {
+    background-color: #9A45DD;
+    border-color: gray;
+    color: white;
+
+}
+
+.btn-bg-purple:hover {
+    background-color: #8839c4;
+    border-color: gray;
+    color: white;
+
+}
+
+.btn-bg-purple:active{
+    background-color: #7732ac;
+    border-color: gray;
+}
+
+.fa-user {
+    padding-left: 20px;
+}
+
+/* fim carrinho */
+
+
+/*Inicio produto*/
+.container-product {
+    display: flex;
+    padding-top: 40px;
+    justify-content: center;
+    
+    
+}
+
+.product-img {
+    margin-left: auto;
+}
+
+.product-card {
+    height: auto;
+    width: 400px;
+    margin-left: 40px;
+    margin-right: auto;
+    margin-top: 30px;
+    
+}
+
+.product-header {
+    padding-bottom: 30px;
+}
+
+.product-header p {
+    font-size: 14px;
+    text-align: right;
+}
+
+.product-header p span {
+    color: #9A45DD;
+}
+
+.product-description {
+    padding-bottom: 100px;
+    border-bottom: 1px solid black;
+
+}
+
+.product-btns {
+    padding-top: 100px;
+
+}
+
+
+.product-btns form label {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+    
+}
+
+.btn-check:checked + .btn {
+    background-color: #9A45DD;
+    color: white;
+}
+
+
+
+
+.product-btns form input {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+
+
+
+.product-btns form button {
+    background-color: #9A45DD;
+    border-color: gray;
+    color: white;
+}
+
+.product-btns form button:hover {
+    background-color: #8839c4;
+    border-color: gray;
+}
+.product-btns form button:active {
+    background-color: #7732ac;
+    border-color: gray;
+}
+
+.frete {
+    margin-top: 20px;
+}
+
+/*fim produto*/
+
+/* Inicio edite seu perfil*/
+
+.container-perfil {
+    width: 770px;
+    height: 600px;
+} 
+
+.perfil {
+    height: 600px;
+}
+
+.edit {
+    font-size: 20px;
+    color: #9A45DD;
+}
+
+
+.perfil input {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: none;
+    padding-left: 6px;
+}
+
+.inputs-small input {
+    width: 300px;
+    height: 40px;
+    text-align: left;
+    
+}
+
+
+.inputs-lagers  input{
+
+    width: 650px;
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+/*Inicio estilização error-404*/
+.error-404 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+.error-404 h1 {
+    font-size: 128px;
+    margin-bottom: 80px;
+}
+
+.error-404 p {
+    font-size: 20px;
+    margin-bottom: 100px;
+}
+/*Fim error-404*/
+
+footer {
+    background: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer a:hover{
+    color: white;
+}
+
+#aaa {
+    display: flex;
+    justify-content: center;
+}
+
+.rodape_h3 {
+    padding: 10px;
+    text-align: left;
+
+}
+
+.links_rodape {
+    display: block;
+    padding-bottom: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+#links_rodape_contato {
+    color: white;
+    text-decoration: none;
+}
+
+#copy {
+    /* margin-left: -10px; */
+    /* margin-right: -10px; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#copyright {
+    text-align: center;
+}
+
+.contact{
+    width: 500px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: none;
+    padding: 6px;
+}
+
+.container-payment {
+    margin-top: 20px;
+    height: auto;
+}
+
+.form-check-input:checked{
+    background-color: #9A45DD;
+}
+
+.bg-payment {
+    background-color: rgb(225, 199, 245);
+}
+
+.bg-payment:hover {
+    border: 1px solid blue;
+}
+
+.credit-card{
+    width: 500px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: none;
+    padding: 6px;
+}
+
+#security-code {
+    width: 183px;
+}
+
+#cadastro_img{ 
+    max-height: 33rem;
+    width: 30%;
+    margin-left: 160px;
+    margin-top: 40px;
+    object-fit: fill;
+    object-position: bottom;
+}
+
+#cadastro_form{
+    max-height: 33rem;
+    width: 30%;
+    margin-right: 160px;
+    margin-top: 10rem;
+    object-position: right;
+    font: sans-serif;
+}
+
+#criarconta_button{
+    background-color: #9A45DD;
+    color: white;
+    font: 1.3em sans-serif;
+    width: 22rem;
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+}
+
+.form{
+    width: 20rem;
+    padding-bottom: 20px;
+    font: 1em sans-serif;
+    border: none;
+    border-bottom: 1px solid black;
+    
+}
+
+.cadastro{
+    margin-top: 5rem;
+    margin-left: 10rem;
+    display: flex; 
+    justify-content: space-around;
+    vertical-align: top; 
+}
+
+#login_link{
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+#legenda_form{
+    margin-bottom: 30px;
+    font-family: Arial;
+}

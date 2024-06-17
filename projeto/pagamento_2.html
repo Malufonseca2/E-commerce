@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trab do Vinicius</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="rectangule"></div>
+    <nav class="navbars">
+      <div class="Logo">
+        <a href="#">FashionStore</a>
+      </div>
+      <ul class="nav-lists">
+				<li class="nav-itens"><a href="index.html">Home</a></li>
+				<li class="nav-itens"><a href="contato.html">Contato</a></li>
+				<li class="nav-itens"><a href="sobre.html">Sobre</a></li>
+				<li class="nav-itens"><a href="#">Login</a></li>
+			</ul>
+      <form class="search" method="get">
+        <input type="text" placeholder="O que está buscando" aria-label="Busca" class="search-input" />
+        <button type="submit" class="search-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="cart">
+        <a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="perfil.html"><i class="fa-regular fa-user"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="container container-payment mt-5">
+      <form method="" class=" container d-flex align-items-center">
+        <div class="container d-flex flex-column pagamento">
+          <h2>Informações de Compra</h2>
+          <label for="number-credit-card" class="mb-2">N° do Cartão</label>
+          <input type="number" name="credit-card-information" id="number-credit-card"
+            class="credit-card mb-2 shadow-sm " aria-required="true" required>
+          <label for="Validate" class="mb-2">Validade</label>
+          <input type="date" name="credit-card-information" id="Validate" class="credit-card mb-2 shadow-sm"  aria-required="true" required>
+          <label for="security-code" class="mb-2">Código de Segurança</label>
+          <input type="number" size="3" min="3" max="3" name="credit-card-information" id="security-code"
+            class="credit-card mb-2 shadow-sm"  aria-required="true" required>
+          <label for="name" class="mb-2">Nome do Titula do Cartão</label>
+          <input type="text" name="credit-card-information" id="name" class="credit-card mb-2 shadow-sm">
+          <label for="number" class="mb-2">CPF</label>
+          <input type="number" size="11" min="11"  max="11" name="credit-card-information" id="complement"
+            class="credit-card mb-2 shadow-sm"  aria-required="true" required>
+          <label for="tel" class="mb-2">telefone do Titular</label>
+          <input type="number" name="credit-card-information" id="tel" class="credit-card mb-2 shadow-sm">
+          <div class="mb-2 form-check"  aria-required="true" required>
+            <input class="form-check-input" type="checkbox" name="credit-card-information" id="save" checked>
+            <label class="form-check-label" for="save">Salvar dados para a próxima compra</label>
+          </div>
+          <a href="" class="btn btn-primary btn-bg-purple me-auto">Confirmar Compra</a>
+        </div>
+        <div class="container d-flex flex-column">
+          <div class="d-flex align-items-center justify-content-between mt-5 ps-3 pe-5">
+            <div class="d-flex align-items-center">
+              <img src="images 1.png" alt="">
+              <p>Produto 1</p>
+            </div>
+            <span>R$ 120</span>
+          </div>
+          <div class="d-flex align-items-center justify-content-between mt-5 ps-3 pe-5">
+            <div class="d-flex align-items-center">
+              <img src="images 1.png" alt="">
+              <p>Produto 2</p>
+            </div>
+            <span>R$ 120</span>
+
+          </div>
+          <div class="border-bottom text-end">
+            <p class="pe-5">Total: <span class="ps-5"> R$280,00</span></p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </main>
+  <footer>
+    <div id="aaa">
+      <div class="rodape_h3">
+        <h3>Suporte</h3>
+        <div class="fff">
+          <p>Rua Ibituruna 257, Rio de Janeiro</p>
+          <p>fashionstore@gmail.com</p>
+          <p>+55 (21) 5568-7242</p>
+        </div>
+      </div>
+
+      <div class="rodape_h3">
+        <h3>Conta</h3>
+        <div class="fff">
+          <a class="links_rodape" href="">Minha Conta</a>
+          <a class="links_rodape" href="">Login / Cadastro</a>
+          <a class="links_rodape" href="">Carrinho</a>
+          <a class="links_rodape" href="">Loja</a>
+        </div>
+      </div>
+
+      <div class="rodape_h3">
+        <h3>Institucional</h3>
+        <div class="fff">
+          <p>Politica de Privacidade</p>
+          <p>Termos de Uso</p>
+          <p>FAQ</p>
+          <a id="links_rodape_contato" href="">Contato</a>
+        </div>
+      </div>
+    </div>
+    <fieldset id="copy">
+      <p id="copyright">
+        © Copyright FashionStore 2024. Todos os direitos reservados.
+      </p>
+    </fieldset>
+  </footer>
+  <script src="https://kit.fontawesome.com/0666387d2d.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
