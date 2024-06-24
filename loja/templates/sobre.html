@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+	<main>
+		<div class="container-template">
+			<div class="links">
+				<p><a href="{% url 'home' %}">Home</a> / Sobre</p>
+			</div>
+		</div>
+
+		<div>
+
+			<div class="container">
+				<div class="d-flex align-items-stretch">
+					<div class="ps-5">
+						<H1 class="mb-5">Quem Somos</H1>
+						<p class="pt-5 w-75" style="font-size: 24px;"> <strong>A FashionStore é uma empresa que presa pela moda moderna, sempre buscando
+							se reinventar no
+							mercado e trazer os produtos de melhor qualidade para o consumidor.
+						<br>A FashionStore sempre esta ativamente investindo em novas tecnologias para
+							fazer com que o
+							consumidor tenha a melhor experiência possível, de forma rápida e efícaz.</strong></p>
+					</div>
+					<img class="img-fluid" src="{% static 'img/vestido-roxo-1.png' %}" alt="">
+				</div>
+			</div>
+			<div class="d-flex align-items-center justify-content-around mt-3">
+				<div class="d-flex flex-column align-items-center">
+					<img src="{% static 'img/Services1.png' %}" alt="" style="width: 40px;">
+					<h3>Entrega Rápida</h3>
+					<p>Entregamos em todo Brasil
+					<br>de forma rápida e eficiente</p>
+				</div>
+				<div class="d-flex flex-column align-items-center">
+					<img src=" {% static 'img/Services2.png' %} " alt="" style="width: 40px;">
+					<h3>Suporte todos os dias</h3>
+					<p>Suporte ao consumidor 7 dias na semana</p>
+				</div>
+				<div class="d-flex flex-column align-items-center">
+					<img src="{% static 'img/Services3.png' %}" alt="" style="width: 40px;">
+					<h3>Reembolso Garantido</h3>
+					<p>Reembolsamos o seu dinheiro
+					<br>em até 30 dias após a solicitação</p>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+{% endblock %}

@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+	<main>
+		<div class="container-template">
+			<div class="links">
+				<p><a href="{% url "home" %}">Home</a> / Minha Senha</p>
+			</div>
+		</div>
+
+		<div class="container shadow container-perfil">
+			<div class="mt-2 ms-4 mb-3">
+				<span class="edit">Edite seu Sua Senha</span>
+			</div>
+			<form action="{% url "atualizar_senha" %}"  method='POST' class="perfil d-flex flex-column">
+				{% csrf_token %}
+				<div class="d-flex flex-column inputs-lagers mt-3 ms-4">
+					<p>Mudar senha</p>
+					{{form.as_p }}
+				</div>
+				<div class="btn-container d-flex justify-content-end align-items-center mt-3 me-5">
+					<a href="index.html">Cancelar</a>
+					<button type="submit" class="btn btn-bg-purple btn-lg ms-3 me-5">Atualizar</button>
+				</div>
+			</form>
+		</div>
+
+
+	</main>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="flex-row justify-content-center">
+  <img src="{% static 'img/img2.jpeg' %}" alt="" class="img_login">
+
+    <div class="login">
+      <h1 id="h1_login">Faça Login</h1>
+      <form method='POST' action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form_group">
+          <input type="text" placeholder="Entre com usuario" class="mt-2 mb-2 input_login" name='username' required>
+        </div>
+        <div class="form_group">
+          <input type="password" placeholder="Entre com sua Senha" class="mt-2 mb-2 input_login" name='password'
+            required>
+        </div>
+        <button class="btn_login" type='submit'>Login</button>
+      </form>
+      <div class="crieSenha_login">
+        <a href="{% url 'cadastrar' %}" id="crie_conta">Crie uma conta!</a>
+        <a href="{% url 'esqueceu_senha' %}" id="esqueceu_senha">Esqueceu a senha!</a>
+      </div>
+
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+	<main>
+		<div class="container-template">
+			<div class="links">
+				<p><a href="{% url 'home' %}">Home</a> / Contato</p>
+			</div>
+		</div>
+
+		<div class="container mt-5 d-flex flex-column align-items-center justify-content-center info-page">
+				<h1 class="mb-5">Fale Conosco!</h1>
+
+			<div class="d-flex align-items-center mt-5">
+				<div class="d-flex flex-column align-items-center pt-5 me-5">
+					<img src=" {% static 'img/icons-phone.png' %}" alt="" class="icon-img mb-2">
+					<p>+55 (21) 5568-7242</p>
+				</div>
+				<div class="d-flex flex-column align-items-center pt-5 ms-5">
+					<img src="{% static 'img/icons-mail.png' %} " alt="" class="icon-img mb-2">
+					<p>fashionstore@gmail.com</p>
+				</div>
+			</div>
+
+		</div>
+
+
+	</main>
+{% endblock %}

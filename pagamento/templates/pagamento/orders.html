@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Header-->
+
+
+<div class="container">
+    <div class="row">
+        <center>
+            <div class="col-8">
+                <br /><br />
+                <div class="card">
+                    <div class="card-header">
+                        Pedido {{ order.id}} - ${{order.amount_paid}}
+                    </div>
+                    <div class="card-body">
+                        Email: {{ order.email}}<br />
+                        {% if order.date_shipped %}
+                        Data do Envio: {{ order.date_shipped}}
+                        {% else %}
+                        Data do Pedido: {{ order.date_ordered}}
+                        {% endif %}
+                        <br /><br />
+                        {{ order.full_name }}<br />
+                        <pre>{{ order.shipping_address }}
+    </pre>
+                        {% for item in items %}
+                        {{ item.product }} - {{ item.quantity }} - ${{ item.price }}<br />
+
+                        {% endfor %}
+                        <br /><br />
+
+                        <p><strong>Status de Reembolso:</strong>
+                            {% if order.refund_granted %}
+                                Reembolso Concedido
+                            {% elif order.refund_requested %}
+                                Reembolso Solicitado
+                            {% else %}
+                                Não Solicitado
+                            {% endif %}
+                        </p>
+                        {% if not order.refund_requested and order.status == 'F' %}
+                            <form method="post" action="{% url 'orders' order.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-bg-purple">Solicitar Reembolso para Todo o Pedido</button>
+                            </form>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <br />
+
+                <br /><br />
+            </div>
+        </center>
+    </div>
+</div>
+
+{% endblock %}

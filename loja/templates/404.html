@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="cart">
+    <div class="container-template">
+      <div class="links">
+        <p><a href="{% url "home" %}">Home</a> / Error 404</p>
+      </div>
+      <div class="error-404">
+        <h1>404 Not Found</h1>
+        <p>A pagina não foi encontrada. Você pode voltar para a Home page.</p>
+
+        <a class="btn btn-bg-purple" href="{% url "home" %}" role="button">Voltar a Home page</a>
+      </div>
+
+  </main>
+
+  {% endblock %}

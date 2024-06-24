@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <main>
+    <div class="container-product">
+      <img src="{{ produto.imagem.url }}" alt="" class="w-50 product-img" />
+      <div class="product-card">
+        <div class="product-header">
+          <h2> {{ produto.nome }} </h2>
+          <p>Estoque: <span>{{ produto.estoque }}</span></p>
+        </div>
+        <div class="product-description">
+          <p>
+            {{ produto.descricao }}
+          </p>
+        </div>
+        <div class="product-btns">
+          <p>Preço: <span>R$ {{ produto.preco }} </span></p>
+          <div class='d-flex flex-row align-items-baseline'>
+            <div class='me-2'> Quantidade: </div>
+
+            <div >
+              <select class='form-select mb-2' id='qtde_carrinho'>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+            </div>
+          </div>
+
+          <form action="">
+            <span>Size:</span>
+            <input type="radio" class="btn-check" name="variacao" id="p" autocomplete="off" />
+            <label class="btn " for="p">P</label>
+            <input type="radio" class="btn-check" name="variacao" id="m" autocomplete="off" />
+            <label class="btn " for="m">M</label>
+            <input type="radio" class="btn-check" name="variacao" id="gg" autocomplete="off" />
+            <label class="btn " for="gg">GG</label>
+            <input type="radio" class="btn-check" name="variacao" id="xg" autocomplete="off" />
+            <label class="btn " for="xg">XG</label>
+            <input type="radio" class="btn-check" name="variacao" id="xxg" autocomplete="off" />
+            <label class="btn " for="xxg">XXG</label>
+            <br>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type='button' value='{{ produto.id }}' class="btn  btn-lg" type="button" id='add-carrinho'>Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="frete"><img src="{% static 'img/frete.png' %}" alt=""></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    
+
+    $(document).on('click', '#add-carrinho', function(e){
+      e.preventDefault();
+
+      $.ajax({
+        type: 'POST',
+        url: '{% url "add_carrinho" %}',
+        data: {
+          produto_id: $('#add-carrinho').val(),
+          produto_qtde: $('#qtde_carrinho option:selected').text(),
+          csrfmiddlewaretoken: '{{ csrf_token  }}',
+          action: 'post'
+        },
+
+        success: function(json){
+          // console.log(json)
+           document.getElementById("quantidade_carrinho").textContent = json.qty
+          location.reload();
+        },
+
+        error: function(xhr, errmsg, err){
+
+        }
+
+      });
+
+
+    });
+
+  </script>
+
+{% endblock content %}

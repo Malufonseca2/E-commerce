@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+  {% block content %}
+
+  <main>
+    <div class="category">
+      <a href="{% url 'categoria' 'feminina' %}">Moda Feminina &nbsp;<i class="fa-solid fa-chevron-right"></i></a>
+      <a href="{% url 'categoria' 'masculina' %}">Moda Masculina <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+
+    <img src="{% static 'img/home.png' %}" alt="" class="img-principal">
+
+  </main>
+  {% endblock %}

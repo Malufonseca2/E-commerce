@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="cart">
+    <div class="container-template">
+      <div class="links">
+        <p><a href="{% url 'home' %}">Home</a> / {{ categoria }}</p>
+      </div>
+    </div>
+    <div class="container">
+        
+
+      <div class="row row-cols-3 rowl-cols-md-4 g-4">
+
+        {% if buscar %}
+
+            {% for produto in buscar %}
+                {% if produto.a_venda %}
+
+                <div class="col">
+                    <div class="card h-100">
+                    <img src="{{ produto.imagem.url }}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome }}</h5>
+                        <p class="card-text"> {{ produto.descricao }}</p>
+                        <div class="container text-center">
+                        <span class="product-price">R$ {{ produto.preco }}</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-light-custom text-center">
+                        <a href="{% url 'produto' produto.id %}" class="btn btn-bg-purple btn-lg m-2 d-grid gap-2 col-6 mx-auto">Ver Produto</a>
+                    </div>
+                    </div>
+                </div>
+                {% else %}
+
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+
+       
+      </div>
+
+
+  </main>
+
+{% endblock %}

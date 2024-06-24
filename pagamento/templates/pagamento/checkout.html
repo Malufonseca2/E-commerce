@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="flex-row">
+
+  <div class="container container-payment mt-5">
+    <div class=" container d-flex">
+      <div class="container d-flex flex-column pagamento">
+        <h2>Informações de contato</h2>
+        <form method="POST" action="{% url 'info_pagamento' %}">
+          {% csrf_token %}
+
+          {{ shipping_form.as_p }}
+
+          <button type="submit" class="btn btn-bg-purple">
+            Proximo
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container d-flex flex-column">
+
+    {% for produto in produtos_carrinho %}
+    <div class="d-flex align-items-center justify-content-between mt-5 ps-3 pe-5">
+      <div class="container-img">
+        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" class="img-fluid">
+      </div>
+      <div>
+        <p>
+        {% for key, value in quantidades.items %}
+          {% if key == produto.id|slugify %}
+            Quantidade: {{ value }} 
+            {% endif %}
+        {% endfor %}
+        </p>
+        </div>
+      <div>
+        <p>R$ {{produto.preco}}</p>
+      </div>
+      <div>
+        <a href="{% url 'resumo_carrinho' %}" class="btn btn-outline-secondary btn-sm  me-auto">Atualizar itens</a>
+      </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="border-bottom text-end">
+      <p class="pe-5">Total: <span class="ps-5"> R$ {{ totals }}</span></p>
+    </div>
+    <div class="d-flex flex-column mt-2">
+      <div class="d-flex align-items-center justify-content-between mt-2 shadow p-3 mb-2 bg-payment">
+        <div class="d-flex align-items-center">
+          <input type="radio" name="payment-type" id="credit-card" class="ms-2">
+          <label class="ms-2 pe-5" for="credit-card">Cartão de Crédito</label>
+        </div>
+        <div class="pe-2">
+          <img src="image 31.png" alt="">
+          <img src="Visa.png" alt="">
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mt-2 shadow p-3 mb-2 bg-payment">
+        <div class="d-flex align-items-center">
+          <input type="radio" name="payment-type" id="pix" class="ms-2">
+          <label class="ms-2 pe-5" for="pix">Pix</label>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mt-2 shadow p-3 mb-2 bg-payment">
+        <div class="d-flex align-items-center">
+          <input type="radio" name="payment-type" id="boleto-bancario" class="ms-2">
+          <label class="ms-2 pe-5" for="boleto-bancario">Boleto Bancario</label>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mt-2 shadow p-3 bg-payment">
+        <div class="d-flex align-items-center">
+          <input type="radio" name="payment-type" id="paypal" class="ms-2">
+          <label class="ms-2 pe-5" for="paypal">Paypal</label>
+        </div>
+        <div class="pe-2">
+          <img src="pngwing 1.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+</main>
+
+{% endblock %}

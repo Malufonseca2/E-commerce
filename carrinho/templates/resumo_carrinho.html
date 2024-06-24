@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <main class="cart">
+      <div class="container-template">
+        <div class="links">
+          <p><a href="{% url "home" %}">Home</a> / Cart</p>
+        </div>
+
+        <div class="table-container">
+          
+          {% if produtos_carrinho %}
+            <table class="table-cart-resume">
+              <thead>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Ação</th>
+              </thead>
+              <tbody>
+                {% for produto in produtos_carrinho %}
+                  <tr>
+                    <td>
+                      {{ produto.nome }}
+                    </td>
+                    <td>R$ {{produto.preco}}</td>
+                    <td> 
+                        <div>
+                          <select class='form-select mb-2' id='select{{ produto.id }}'>
+                            {% for key, value in quantidades.items %}
+                            {% if key == produto.id|slugify %}
+                                <option selected>
+                                  {{ value }}
+                                </option>
+                                {% endif %}
+                              {% endfor %} 
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
+
+                        </div>
+
+                    </td>
+                    <td>
+                      <button type='button' data-index='{{ produto.id }}' class="btn btn-secondary update-carrinho"
+                      >Atualizar</button>
+                      <button type='button' data-index='{{ produto.id }}' class="btn btn-danger delete-produto"
+                      >Remover</button>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+          </div>
+          <div class="btn-cart">
+            <a class="btn  btn-bg-purple" href="{% url "home" %}">Retornar Home</a>
+          </div>
+          <div class="cart-price">
+            <h2>Total do Carrinho</h2>
+            <table>
+              <tbody class="cart-total">
+                <tr>
+                  <th>Frete:</th>
+                  <td>Gratis</td>
+                </tr>
+                <tr>
+                  <th>Total:</th>
+                  <td>R$ {{ totals }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <a class="btn-processar btn btn-primary btn-bg-purple"
+            href="{% url "checkout" %}"
+            >Processar Conta</a>
+          </div>
+          {% else %} 
+          <h1>Não há nada no seu Carrinho...</h1>
+          <a class="btn  btn-bg-purple" href="">Retornar Home</a>
+          
+          
+          {% endif %}
+        </div>
+      </main>
+
+
+
+
+
+
+<script>
+  // Atualizar Carrinho
+  $(document).on('click', '.update-carrinho', function(e){
+    e.preventDefault();
+    var produtoid = $(this).data('index');
+
+    $.ajax({
+      type: 'POST',
+      url: '{% url "update_carrinho" %}',
+      data: {
+        produto_id:  $(this).data('index'),
+        produto_qtde: $('#select' + produtoid + ' option:selected').text(),
+        csrfmiddlewaretoken: '{{ csrf_token  }}',
+        action: 'post'
+      },
+
+      success: function(json){
+        // console.log(json)
+        //document.getElementById("quantidade_carrinho").textContent = json.qty
+        location.reload()
+
+      },
+
+      error: function(xhr, errmsg, err){
+
+      }
+
+    });
+
+
+  })
+
+  // Deletar Produto do Carrinho
+  $(document).on('click', '.delete-produto', function(e){
+    e.preventDefault();
+    // var produtoid = $(this).data('index');
+
+    $.ajax({
+      type: 'POST',
+      url: '{% url "delete_carrinho" %}',
+      data: {
+        produto_id:  $(this).data('index'),
+        csrfmiddlewaretoken: '{{ csrf_token  }}',
+        action: 'post'
+      },
+
+      success: function(json){
+        // console.log(json)
+        //document.getElementById("quantidade_carrinho").textContent = json.qty
+        location.reload()
+      },
+
+      error: function(xhr, errmsg, err){
+
+      }
+
+    });
+
+
+  })
+
+</script>
+
+{% endblock %}

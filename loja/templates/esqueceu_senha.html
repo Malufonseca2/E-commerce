@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="flex-row justify-content-center">
+    <img src="{% static 'img/img2.jpeg' %}" alt="" class="img_login">
+    <div class="login">
+        <h1 class="h1_login">Esqueceu a senha</h1>
+        <form action="" method="post" autocomplete="on" id="cadastro_form">
+            {% csrf_token %}
+            <div class="form_group mb-2">
+                <input type="email" name='email' class="input_login" id="inome" required maxlength="30"
+                    placeholder="Insira o seu email cadastrado">
+            </div>
+            <button type='submit'  class="btn_login" id="criarconta_button">Enviar</button>
+            <br />
+        </form>
+    </div>
+</main>
+{% endblock %}

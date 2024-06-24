@@ -1,0 +1,47 @@
+<header>
+    <div class="rectangule"></div>
+    <nav class="navbars">
+
+      <div class="Logo">
+        <a href="{% url "home" %}">FashionStore</a>
+      </div>
+      <ul class="nav-lists align-center">
+        <li class="nav-itens mt-3"><a href="{% url 'home' %}">Home</a></li>
+        <li class="nav-itens mt-3"><a href="{% url 'contato' %}">Contato</a></li>
+        <li class="nav-itens mt-3"><a href="{% url 'sobre' %}">Sobre</a></li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown text-dark mt-2">
+          <a class="nav-link dropdown-toggle text-decoration-none text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Perfil
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark ">
+            <li><a class="dropdown-item" href="{% url 'lista_pedidos' %}">Pedidos</a></li>
+            <li><a class="dropdown-item" href="{% url 'atualizar_usuario' %}">Atualiza Usuario</a></li>
+            <li><a class="dropdown-item" href="{% url 'atualizar_info' %}">Atualizar Info</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </li>
+
+        {% else %}
+        <li class="nav-itens mt-3"><a href="{% url 'login' %}">Login</a></li>
+        <li class="nav-itens mt-3"><a href="{% url 'cadastrar' %}">Cadastrar</a></li>
+        {% endif %}
+
+      </ul>
+      <form class="search" method="post" action='{% url "buscar" %}'>
+        {% csrf_token %}
+
+        <input type="text" placeholder="Buscar Produtos" aria-label="Search" name="busca" class="search-input">
+        <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+      </form>
+      <div class="cart">
+        <a href='{% url "resumo_carrinho" %}' class='btn btn-outline-dark'>
+          <i class="fa-solid fa-cart-shopping"></i>Carrinho
+          <span class='badge bg-dark text-white ms-1 rounded-pill' id='quantidade_carrinho'>{{ carrinho|length }}</span>
+        </a>
+      </div>
+
+    </nav>
+</header>
